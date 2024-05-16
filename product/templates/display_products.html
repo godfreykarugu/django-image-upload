@@ -1,0 +1,46 @@
+
+
+{% extends "layout.html" %}
+
+   {% block content %}
+
+  
+    
+    <center>
+      <h1 style="color:purple" class="mb-2">Our Collections</h1>
+      <table class="table  table-hover">
+         <thead>
+          <tr>
+              <th>Product </th>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <th>Product Description</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+          </tr>
+         </thead>
+          <tbody>
+          {% for product in products %}
+            <tr>
+              <td><img src="/media/{{ product.product_image }}" alt="" width=100></td>
+                <td>{{ product.product_name }}</td>
+              <td>{{ product.product_price }}</td>
+              <td>{{ product.product_description }}</td>
+                 <td><a href="{% url 'product-details' product.id %}" class="btn btn-success">View</a></td>
+                 <td><a href="#" class="btn btn-primary">Update</a></td>
+              <td><a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Delete</a></td> 
+            </tr>
+
+
+          {% endfor %}
+
+          </tbody>
+      </table>
+
+
+      </center>  
+
+
+   
+   {% endblock content %}
