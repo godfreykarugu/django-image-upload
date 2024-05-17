@@ -1,0 +1,15 @@
+
+{% extends "layout.html" %}
+
+   {% block content %}
+
+  
+    <h1>Details Page!</h1>
+
+    <p> <strong> Product Name:</strong>{{product.product_name}} </p>
+    <img src="/media/{{ product.product_image }}" alt="" width=100 class="m-3">
+       <h3><strong> Product Price:</strong>$ {{product.product_price}} </h3>  
+       <h3><strong> Product Description:</strong>{{product.product_description}}</h3>
+  
+   
+   {% endblock content %}

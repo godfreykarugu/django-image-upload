@@ -28,6 +28,16 @@ def product_details(request,id):
     product = Product.objects.get(id=id)
     return render(request,'product_details.html',{'product':product})
 
+def update_product(request,id):
+    product = Product.objects.get(id=id)
+    form = ProductForm(request.POST or None, instance=product)
+    if form.is_valid():
+        form.save()
+        return redirect('display-products')
+    else:
+        return render(request,'update_product.html',{'form':form})
+
+
 def delete_product(request,id):
     product = Product.objects.get(id=id)
     product.delete()
@@ -35,3 +45,8 @@ def delete_product(request,id):
 
 def add_student(request):
     return render(request, 'home.html',{})
+
+
+def view_details(request,id):
+    product = Product.objects.get(id=id)
+    return render(request,'view_details.html',{'product':product})

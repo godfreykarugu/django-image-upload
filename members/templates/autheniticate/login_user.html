@@ -1,0 +1,29 @@
+
+{% extends "layout.html" %}
+
+   {% block content %}
+
+  
+    <h1>login User</h1>
+
+    <form action="" method='POST' enctype='multipart/form'>
+        {% csrf_token %}
+
+
+        
+            <div class="mb-3">
+              <label for="username" class="form-label">User Name</label>
+              <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+              
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            
+
+        <input type="submit" value='submit' class='btn btn-secondary'>
+    </form>
+  
+   
+   {% endblock content %}

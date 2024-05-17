@@ -16,8 +16,10 @@
               <th>Product Price</th>
               <th>Product Description</th>
               <th>Details</th>
-              <th>Update</th>
-              <th>Delete</th>
+              {% if user.is_authenticated %}
+                  <th>Update</th>
+                  <th>Delete</th>
+             {% endif %}
           </tr>
          </thead>
           <tbody>
@@ -28,8 +30,14 @@
               <td>{{ product.product_price }}</td>
               <td>{{ product.product_description }}</td>
                  <td><a href="{% url 'product-details' product.id %}" class="btn btn-success">View</a></td>
-                 <td><a href="#" class="btn btn-primary">Update</a></td>
-              <td><a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Delete</a></td> 
+                
+ {% comment %} Lock update and delete buttons if the user has not signed in {% endcomment %}
+                 
+                 {% if user.is_authenticated %}
+
+                      <td><a href="{% url 'update-product' product.id %}" class="btn btn-primary">Update</a></td>
+                      <td><a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Delete</a></td> 
+                 {% endif %}
             </tr>
 
 

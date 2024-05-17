@@ -20,7 +20,11 @@
 
       <a href="{% url 'display-products' %}" class="btn btn-success">Back to Products</a>
 
-     <a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Delete</a> 
+{% comment %} Hide delete button if user is not logged in {% endcomment %}
+          {% if user.is_authenticated %}
+
+                <a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Delete</a> 
+          {% endif %}
   </div>
 </div>
 
