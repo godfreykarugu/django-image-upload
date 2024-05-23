@@ -3,10 +3,7 @@
 {% extends "layout.html" %}
 
    {% block content %}
-
-  
-    
-    <center>
+      <center>
       <h1 style="color:purple" class="mb-2">Our Collections</h1>
       <table class="table  table-hover">
          <thead>
@@ -39,16 +36,8 @@
                       <td><a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Delete</a></td> 
                  {% endif %}
             </tr>
-
-
           {% endfor %}
-
           </tbody>
       </table>
-
-
-      </center>  
-
-
-   
+      </center>
    {% endblock content %}

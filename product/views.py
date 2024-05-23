@@ -30,7 +30,7 @@ def product_details(request,id):
 
 def update_product(request,id):
     product = Product.objects.get(id=id)
-    form = ProductForm(request.POST or None, instance=product)
+    form = ProductForm(request.POST or None,request.FILES or None, instance=product)
     if form.is_valid():
         form.save()
         return redirect('display-products')
